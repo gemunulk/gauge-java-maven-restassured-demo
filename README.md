@@ -40,7 +40,7 @@ Modify /env/default/appium.properties
 
 ### All specs
 ````
-gauge run specs
+mvn gauge:execute -DspecsDir=specs
 ````
 This will also compile all the supporting code implementations.
 
