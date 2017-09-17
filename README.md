@@ -36,7 +36,6 @@ Use the /env/default/api.properties accordingly.
 
 ### Set up
 This project requires maven to install dependencies. To install dependencies re-import maven dependencies using IntelliJ IDEA.
-Modify /env/default/appium.properties
 
 ### All specs
 ````
