@@ -2,11 +2,8 @@ package com.aut.apis;
 
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.datastore.DataStore;
-import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import org.openqa.selenium.support.PageFactory;
 
 public class BaseSpec{
 
