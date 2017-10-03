@@ -2,23 +2,28 @@ package com.aut.apis;
 
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public abstract class BaseAPI {
+public class BaseAPI {
     protected static String Url = System.getenv("APP_ENDPOINT");
 
     private RequestSpecification request;
     private Response response;
     private ValidatableResponse validatableResponse;
+    DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+
 
 
     public BaseAPI(){
@@ -59,6 +64,18 @@ public abstract class BaseAPI {
         }
 
         return paramsHash;
+
+    }
+
+    public Map convertTableToAJsonMap(Table table){
+
+        Map<String, Object> jsonAsMap = new HashMap<>();
+
+        for (TableRow row : table.getTableRows()) {
+            jsonAsMap.put(row.getCell("Key"), row.getCell("Value"));
+        }
+
+        return jsonAsMap;
 
     }
 
